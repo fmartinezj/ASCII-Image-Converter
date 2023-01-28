@@ -1,10 +1,10 @@
 import java.util.Arrays;
 void setup(){
-  size(640,480);
+  size(860,853);
   PImage img;
-  img = loadImage;
-  
-  
+  img = loadImage("jeeptwo.png");
+ 
+  image(img,0,0);
   
   
   

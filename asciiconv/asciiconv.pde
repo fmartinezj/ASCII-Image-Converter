@@ -8,17 +8,49 @@ void setup(){
   filter(GRAY); //processing has this func that allows image to be converted to grayscale, now i just need the grayscale values
   loadPixels();
   
-  int hpix[] = new int[(860/48)+10]; //array for horizontal pixels
-  int hSpace = (860/48)+10;
-  int hCount = 0;
-  
-  //TEST AREA
-  System.out.println(hSpace);
-  System.out.println(width);
+  float newPix[] = new float[width*height]; //array for new ascii image "pixels"
+  //int hSpace = (860/48)+10;
+  int count = 0;
   
   
   
-  for (int z = 0; z < hSpace; z++){
+  
+  
+  for (int i=0; i < (width*height); i++){ //this for-loop will cycle through every single pixel in the loaded image
+    newPix[i]=brightness(pixels[i]);      //stores every brightness pixel's brightness value into a new array
+  }
+  
+  for (int i=0; i < (width*height); i++){ //this for-loop will cycle through every single pixel in the loaded image
+    String x;
+    if (newPix[i] > 230.0){     //assigns an ascii character to each pixel based on its brightness value
+      x = " ";
+  } else if (newPix[i] > 204){
+    x = ".";
+  } else if (newPix[i] > 204){
+    x = "\'";
+  } else if (newPix[i] > 204){
+    x = "=";
+  } else if (newPix[i] > 204){
+    x = ":";
+  } else if (newPix[i] > 204){
+    x = "*";
+  } else if (newPix[i] > 204){
+    x = "|";
+  } else if (newPix[i] > 204){
+    x = "o";
+  } else if (newPix[i] > 204){
+    x = "$";
+  } else {
+    x = "M";
+  }
+  
+  }
+  
+  
+  
+  /************************** VERSION 1 [START] *************************************
+  
+  /*for (int z = 0; z < hSpace; z++){
 
   for (int i = 0; i < width; i=i+48){ //runs through the horizontal array 48 pixels at a time
     int avgPixH = 0;
@@ -43,16 +75,22 @@ void setup(){
  // }
   
  updatePixels(); //ll be used to update the display window after the conversion
+ */  
   
   
   
+  /*************TEST AREA******************
+  
+  //System.out.println(hSpace);
+  System.out.println(width);
+  
+  **************TEST AREA******************
   
   
+  /************************** VERSION 1 [END]*************************************
   
   
-  
-  
-  
+  */
   
   
 }

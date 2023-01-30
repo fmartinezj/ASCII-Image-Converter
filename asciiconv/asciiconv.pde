@@ -1,5 +1,7 @@
+import java.io.PrintWriter;
+import java.io.IOException;
 import java.util.Arrays;
-void setup(){
+void setup() {
   size(860,853); //size of the test image; this can be modified to be a variable for any image size that is used in the test
   PImage img; //create image variable 
   img = loadImage("jeeptwo.png"); //test image that will be used
@@ -12,8 +14,10 @@ void setup(){
   //int hSpace = (860/48)+10;
   int count = 0;
   
+  String newimg[] = new String[width*height];
   
   
+ // PrintWriter out = new PrintWriter("output.txt"); unable to set up in this class
   
   
   for (int i=0; i < (width*height); i++){ //this for-loop will cycle through every single pixel in the loaded image
@@ -26,25 +30,37 @@ void setup(){
       x = " ";
   } else if (newPix[i] > 204){
     x = ".";
-  } else if (newPix[i] > 204){
+  } else if (newPix[i] > 178){
     x = "\'";
-  } else if (newPix[i] > 204){
+  } else if (newPix[i] > 152){
     x = "=";
-  } else if (newPix[i] > 204){
+  } else if (newPix[i] > 127){
     x = ":";
-  } else if (newPix[i] > 204){
+  } else if (newPix[i] > 102){
     x = "*";
-  } else if (newPix[i] > 204){
+  } else if (newPix[i] > 76){
     x = "|";
-  } else if (newPix[i] > 204){
+  } else if (newPix[i] > 50){
     x = "o";
-  } else if (newPix[i] > 204){
+  } else if (newPix[i] > 25){
     x = "$";
   } else {
     x = "M";
   }
+  
+  newimg[i] = x;
+  
   }
   
+    for (int i = 0; i < 733580; i=i+8530){ //scaling loop WIP -> output for "Processing" deletes output -> txt file will be output destination but requires a new class
+      while (count < 8531) {
+      System.out.print(newimg[i]);
+      count++;
+      }
+      System.out.println();
+      count = 0;
+    }
+   
   
   
   /************************** VERSION 1 [START] *************************************
